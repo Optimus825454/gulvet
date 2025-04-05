@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gülvet - İletişim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="font-sans bg-gray-50">
+
+
+    <!-- Navigation -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Page Header -->
+    <section class="contact-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">Bize Ulaşın</h1>
+            <p class="text-xl md:text-2xl mb-6">Damızlık hayvanlarımız ve hizmetlerimiz hakkında bilgi almak için
+                iletişime geçin</p>
+            <div class="flex justify-center">
+                <nav class="flex" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                        <li class="inline-flex items-center">
+                            <a href="index.html"
+                                class="inline-flex items-center text-sm font-medium text-green-200 hover:text-white">
+                                <i class="fas fa-home mr-2"></i>
+                                Ana Sayfa
+                            </a>
+                        </li>
+                        <li aria-current="page">
+                            <div class="flex items-center">
+                                <i class="fas fa-chevron-right text-xs text-gray-300 mx-2"></i>
+                                <span class="text-sm font-medium text-white">İletişim</span>
+                            </div>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-green-800 mb-4">Sorularınız mı var?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Damızlık hayvanlarımız, hizmetlerimiz veya işbirliği
+                    fırsatları hakkında bilgi almak için aşağıdaki iletişim bilgilerimizi kullanabilir veya iletişim
+                    formunu doldurabilirsiniz.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Contact Card 1 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md contact-card transition duration-300">
+                    <div class="bg-green-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-map-marker-alt text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-green-800 mb-2">Adresimiz</h3>
+                    <p class="text-gray-600 text-center">Hamam Mah. Dazya Sk., Turhal, Turkey</p>
+                </div>
+
+                <!-- Contact Card 2 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md contact-card transition duration-300">
+                    <div class="bg-green-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-phone-alt text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-green-800 mb-2">Telefon</h3>
+                    <p class="text-gray-600 text-center mb-1">0 536 856 20 81</p>
+                    <p class="text-gray-600 text-center"></p>
+                </div>
+
+                <!-- Contact Card 3 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md contact-card transition duration-300">
+                    <div class="bg-green-100 w-14 h-14 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-envelope text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-green-800 mb-2">E-posta</h3>
+                    <p class="text-gray-600 text-center mb-1">info@gulvet.com</p>
+                    <p class="text-gray-600 text-center">satis@gulvet.com</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div>
+                    <h3 class="text-2xl font-bold text-green-800 mb-6">Mesaj Gönderin</h3>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-1">Adınız Soyadınız*</label>
+                                <input type="text" id="name"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none input-focus focus:border-green-500"
+                                    required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-1">E-posta Adresiniz*</label>
+                                <input type="email" id="email"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none input-focus focus:border-green-500"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-1">Telefon Numaranız</label>
+                            <input type="tel" id="phone"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none input-focus focus:border-green-500">
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-1">Konu*</label>
+                            <select id="subject"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none input-focus focus:border-green-500"
+                                required>
+                                <option value="">Konu Seçiniz</option>
+                                <option value="satin-alma">Damızlık Hayvan Satın Alma</option>
+                                <option value="danismanlik">Danışmanlık Hizmetleri</option>
+                                <option value="lojistik">Lojistik Hizmetleri</option>
+                                <option value="diger">Diğer</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-1">Mesajınız*</label>
+                            <textarea id="message" rows="5"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none input-focus focus:border-green-500"
+                                required></textarea>
+                        </div>
+
+                        <div class="flex items-center">
+                            <input type="checkbox" id="consent" class="mr-2" required>
+                            <label for="consent" class="text-gray-700 text-sm">
+                                <a href="#" class="text-green-600 hover:underline">KVKK Aydınlatma Metni</a>'ni okudum
+                                ve onaylıyorum.
+                            </label>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-medium transition duration-300">
+                            Mesajı Gönder <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Map and Working Hours -->
+                <div>
+                    <h3 class="text-2xl font-bold text-green-800 mb-6">Haritada Bulun</h3>
+                    <div class="map-container mb-8">
+                        <iframe src="https://www.google.com/maps?q=Hamam+Mah.+Dazya+Sk.,+Turhal,+Turkey&output=embed"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-green-800 mb-4">Çalışma Saatlerimiz</h3>
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <ul class="space-y-3">
+                            <li class="flex justify-between border-b border-gray-200 pb-2">
+                                <span class="text-gray-700">Pazartesi - Cuma</span>
+                                <span class="font-medium">08:00 - 18:00</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-200 pb-2">
+                                <span class="text-gray-700">Cumartesi</span>
+                                <span class="font-medium">09:00 - 15:00</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-700">Pazar</span>
+                                <span class="font-medium">Kapalı</span>
+                            </li>
+                        </ul>
+
+                        <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-info-circle text-yellow-400"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-yellow-700">
+                                        Resmi tatillerde çalışma saatleri değişiklik gösterebilir. Lütfen önceden
+                                        telefonla teyit ediniz.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-green-800 mb-4">Sıkça Sorulan Sorular</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Müşterilerimizin en çok sorduğu sorular ve cevapları aşağıda
+                    listelenmiştir.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-4 bg-white hover:bg-gray-50 focus:outline-none">
+                        <span class="text-lg font-medium text-gray-800">Damızlık hayvan satın alma süreci nasıl
+                            işliyor?</span>
+                        <i class="fas fa-chevron-down text-green-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-4 pb-4 pt-0 bg-white">
+                        <p class="text-gray-600">
+                            Damızlık hayvan satın alma sürecimiz şu şekilde işlemektedir: Öncelikle ihtiyaçlarınız
+                            doğrultusunda size uygun hayvanları belirliyoruz. Daha sonra seçtiğiniz hayvanları yerinde
+                            görmeniz için çiftliğimize davet ediyoruz. Veteriner kontrolünden geçirdikten sonra satış
+                            sözleşmesini imzalıyor ve lojistik desteğimizle hayvanlarınızı belirlediğiniz adrese teslim
+                            ediyoruz.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-4 bg-white hover:bg-gray-50 focus:outline-none">
+                        <span class="text-lg font-medium text-gray-800">Hayvanların sağlık garantisi var mı?</span>
+                        <i class="fas fa-chevron-down text-green-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-4 pb-4 pt-0 bg-white">
+                        <p class="text-gray-600">
+                            Evet, tüm hayvanlarımız satış öncesi veteriner kontrolünden geçmektedir ve size teslim
+                            edilmeden önce gerekli aşıları yapılmış olur. Satış sonrası 30 günlük sağlık garantimiz
+                            bulunmaktadır. Bu süre içinde herhangi bir sağlık problemi yaşamanız durumunda veteriner
+                            desteği sağlıyoruz.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-4 bg-white hover:bg-gray-50 focus:outline-none">
+                        <span class="text-lg font-medium text-gray-800">Hayvanların nakliyesini siz mi
+                            yapıyorsunuz?</span>
+                        <i class="fas fa-chevron-down text-green-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-4 pb-4 pt-0 bg-white">
+                        <p class="text-gray-600">
+                            Evet, profesyonel lojistik ekibimiz ve özel olarak tasarlanmış araçlarımızla hayvanlarınızı
+                            güvenli bir şekilde belirlediğiniz adrese teslim ediyoruz. Nakliye ücreti satın alınan
+                            hayvan sayısına ve mesafeye göre değişiklik göstermektedir. Detaylı bilgi için iletişim
+                            formunu doldurabilir veya telefonla bize ulaşabilirsiniz.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-4 bg-white hover:bg-gray-50 focus:outline-none">
+                        <span class="text-lg font-medium text-gray-800">Kredi veya taksit imkanınız var mı?</span>
+                        <i class="fas fa-chevron-down text-green-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-4 pb-4 pt-0 bg-white">
+                        <p class="text-gray-600">
+                            Belirli bankalarla anlaşmalı olduğumuz kredi ve taksit seçenekleri mevcuttur. Ayrıca kendi
+                            bünyemizde de uygun ödeme planları sunmaktayız. Ödeme seçenekleri satın alınan hayvan
+                            sayısına ve müşteri profiline göre değişiklik gösterebilmektedir. Detaylı bilgi için satış
+                            temsilcilerimizle görüşebilirsiniz.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-4 bg-white hover:bg-gray-50 focus:outline-none">
+                        <span class="text-lg font-medium text-gray-800">Çiftliğinizi ziyaret edebilir miyim?</span>
+                        <i class="fas fa-chevron-down text-green-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-4 pb-4 pt-0 bg-white">
+                        <p class="text-gray-600">
+                            Elbette, çiftliğimizi randevu alarak ziyaret edebilirsiniz. Hayvanlarımızı yerinde görmeniz
+                            ve yetiştirme koşullarımızı incelemeniz için her zaman kapılarımız açıktır. Ziyaret için
+                            önceden telefonla randevu almanızı rica ediyoruz, böylece size daha iyi hizmet verebilir ve
+                            tüm sorularınızı detaylı bir şekilde yanıtlayabiliriz.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <p class="text-gray-600 mb-4">Yukarıda cevabını bulamadığınız bir sorunuz mu var?</p>
+                <a href="#contact-form"
+                    class="inline-block bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-medium transition duration-300">
+                    Bize Sorun <i class="fas fa-question-circle ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12 bg-green-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Bültenimize Abone Olun</h2>
+            <p class="text-lg mb-6 max-w-2xl mx-auto">Damızlık hayvancılıkla ilgili güncel bilgiler, uzman görüşleri ve
+                kampanyalarımızdan haberdar olmak için e-posta listemize kaydolun.</p>
+            <form class="max-w-md mx-auto flex">
+                <input type="email" placeholder="E-posta adresiniz"
+                    class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-gray-800">
+                <button type="submit"
+                    class="bg-green-900 hover:bg-green-800 text-white px-6 py-3 rounded-r-lg font-medium">
+                    Abone Ol
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- WhatsApp Float Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="#"
+            class="bg-green-600 hover:bg-green-700 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition duration-300">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <script>
+        // Navbar ve footer'ı AJAX ile yükle
+        document.addEventListener( 'DOMContentLoaded', function () {
+            fetch( 'components/navbar.html' )
+                .then( response => response.text() )
+                .then( data => {
+                    document.getElementById( 'navbar-placeholder' ).innerHTML = data;
+                    const menuButton = document.getElementById( 'mobile-menu-button' );
+                    if ( menuButton ) {
+                        menuButton.addEventListener( 'click', function () {
+                            const menu = document.getElementById( 'mobile-menu' );
+                            if ( menu ) {
+                                menu.classList.toggle( 'hidden' );
+                            }
+                        } );
+                    }
+                } );
+
+            fetch( 'components/footer.html' )
+                .then( response => response.text() )
+                .then( data => {
+                    document.getElementById( 'footer-placeholder' ).innerHTML = data;
+                } );
+        } );
+
+
+        // FAQ toggle functionality
+        document.querySelectorAll( '.faq-toggle' ).forEach( button => {
+            button.addEventListener( 'click', function () {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector( 'i' );
+
+                // Toggle content
+                content.classList.toggle( 'hidden' );
+
+                // Rotate icon
+                if ( content.classList.contains( 'hidden' ) ) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+
+                // Close other FAQs
+                document.querySelectorAll( '.faq-toggle' ).forEach( otherButton => {
+                    if ( otherButton !== this ) {
+                        otherButton.nextElementSibling.classList.add( 'hidden' );
+                        otherButton.querySelector( 'i' ).style.transform = 'rotate(0deg)';
+                    }
+                } );
+            } );
+        } );
+
+        // Form submission
+        const contactForm = document.querySelector( 'form' );
+        if ( contactForm ) {
+            contactForm.addEventListener( 'submit', function ( e ) {
+                e.preventDefault();
+
+                // Here you would typically send the form data to your server
+                // For demo purposes, we'll just show an alert
+                alert( 'Mesajınız başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.' );
+                this.reset();
+            } );
+        }
+    </script>
+
+    <!-- Soru Gönder Modal -->
+    <div id="question-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6 relative">
+            <button id="close-modal"
+                class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            <h2 class="text-2xl font-bold mb-4 text-green-800">Bize Sorun</h2>
+            <form id="question-form" class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 mb-1">Adınız Soyadınız*</label>
+                    <input type="text" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-1">E-posta*</label>
+                    <input type="email" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-1">Telefon</label>
+                    <input type="tel"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-1">Konu*</label>
+                    <input type="text" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-1">Mesajınız*</label>
+                    <textarea rows="4" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-medium transition duration-300">Gönder</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector( 'a[href="#contact-form"]' ).addEventListener( 'click', function ( e ) {
+            e.preventDefault();
+            document.getElementById( 'question-modal' ).classList.remove( 'hidden' );
+        } );
+        document.getElementById( 'close-modal' ).addEventListener( 'click', function () {
+            document.getElementById( 'question-modal' ).classList.add( 'hidden' );
+        } );
+        document.getElementById( 'question-modal' ).addEventListener( 'click', function ( e ) {
+            if ( e.target === this ) {
+                this.classList.add( 'hidden' );
+            }
+        } );
+        document.getElementById( 'question-form' ).addEventListener( 'submit', function ( e ) {
+            e.preventDefault();
+            alert( 'Sorunuz başarıyla gönderildi!' );
+            this.reset();
+            document.getElementById( 'question-modal' ).classList.add( 'hidden' );
+        } );
+    </script>
+</body>
+
+</html>

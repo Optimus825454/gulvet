@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Angus Irkı Yetiştiriciliğinde Dikkat Edilmesi Gerekenler</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="font-sans bg-gray-50">
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="hero-bg-3 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">Angus Irkı Yetiştiriciliğinde Dikkat Edilmesi Gerekenler
+            </h1>
+            <p class="text-xl md:text-2xl mb-6">Et verimi yüksek Angus sığırları hakkında önemli bilgiler</p>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-12">
+        <article class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md article-content">
+            <div class="flex items-center text-sm text-gray-500 mb-6">
+                <span><i class="far fa-calendar-alt mr-1"></i> 5 Haziran 2023</span>
+                <span class="mx-2">•</span>
+                <span><i class="far fa-user mr-1"></i> Dr. Mehmet Kaya</span>
+                <span class="mx-2">•</span>
+                <span><i class="far fa-clock mr-1"></i> 4 dk okuma</span>
+            </div>
+            <img src="images/animals/satsor.png" alt="Angus Irkı" class="w-full h-auto mb-6 rounded-lg shadow" />
+            <h2 class="text-2xl font-bold mb-4">Angus Irkının Avantajları</h2>
+            <p class="mb-4">Angus sığırları, hızlı büyüme, yüksek karkas verimi ve kaliteli et yapısı ile bilinir.
+                Merada yetiştirilmeye uygun, dayanıklı ve uysal hayvanlardır.</p>
+            <h3 class="text-xl font-semibold mb-3">Beslenme ve Bakım</h3>
+            <p class="mb-4">Angus sığırlarının beslenmesinde kaliteli kaba yem ve uygun miktarda konsantre yem
+                kullanılmalıdır. Merada otlatma, et kalitesini artırır.</p>
+            <p class="mb-4">Yeterli mineral ve vitamin desteği sağlanmalı, temiz suya erişim sürekli olmalıdır.</p>
+            <h3 class="text-xl font-semibold mb-3">Sağlık ve Yönetim</h3>
+            <p class="mb-4">Aşılama programlarına uyulmalı, parazit kontrolleri düzenli yapılmalıdır. Stresten uzak,
+                uygun barınak koşulları sağlanmalıdır.</p>
+            <p class="mb-4">Doğru bakım ve yönetimle Angus sığırlarından yüksek verim ve kaliteli et elde edilebilir.
+            </p>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        document.addEventListener( 'DOMContentLoaded', function () {
+            fetch( 'components/navbar.html' )
+                .then( response => response.text() )
+                .then( data => { document.getElementById( 'navbar-placeholder' ).innerHTML = data; } );
+
+            fetch( 'components/footer.html' )
+                .then( response => response.text() )
+                .then( data => { document.getElementById( 'footer-placeholder' ).innerHTML = data; } );
+        } );
+    </script>
+
+</body>
+
+</html>

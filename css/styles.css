@@ -1,0 +1,243 @@
+.hero-bg {
+    background-repeat: no-repeat;
+    logo-image: url('../images/logo3.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/animals/22.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.animal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section {
+    transition: all 0.3s ease;
+}
+
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.sticky-nav.scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.98);
+}
+
+/* Top bar için yeni stil */
+.top-bar {
+    background-color: #166534;
+    color: white;
+    position: relative;
+    z-index: 1001;
+}
+
+
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: #38a169;
+    text-decoration: underline;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #38a169;
+}
+
+.navbar-brand:hover {
+    color: #2f855a;
+}
+
+.nav-link {
+    color: #3c4858;
+}
+
+.nav-link:hover {
+    color: #2f855a;
+}
+
+.logo-top {
+    height: 80px;
+    width: auto;
+    /* Updated max-width to a more appropriate value */
+    margin-bottom: 1rem;
+    width: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.footer {
+    background-color: rgb(17 30 51) !important;
+}
+
+.timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 24px;
+    height: calc(100% - 24px);
+    width: 2px;
+    background: #38a169;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.article-content img {
+    border-radius: 8px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.contact-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/animals/d2.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.map-container {
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.input-focus:focus {
+    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.5);
+}
+
+.quality-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cert-badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #2f855a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 24px;
+    top: 40px;
+    height: calc(100% - 40px);
+    width: 2px;
+    background-color: #2f855a;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.process-step::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: #2f855a;
+    z-index: 1;
+}
+
+.process-step:last-child::before {
+    display: none;
+}
+
+.hero-bg-1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/animals/holstein.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-bg-2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/animals/hols.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-bg-3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/animals/satsor.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-bg-4 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/animals/danisman.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* GUL-AI fade-out animasyonu */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}

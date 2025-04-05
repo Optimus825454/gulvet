@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gülvet Analytics Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .sidebar {
+            transition: all 0.3s;
+        }
+
+        .sidebar.collapsed {
+            width: 70px;
+        }
+
+        .sidebar.collapsed .sidebar-text {
+            display: none;
+        }
+
+        .sidebar.collapsed .sidebar-icon {
+            margin-right: 0;
+        }
+
+        .content {
+            transition: all 0.3s;
+        }
+
+        .content.expanded {
+            margin-left: 70px;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .data-table th {
+            position: sticky;
+            top: 0;
+            background-color: #f8fafc;
+            z-index: 10;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="sticky-nav bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="./images/logo3.png" alt="Gülvet Logo" class="logo-top h-10">
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-green-800 font-medium hover:text-green-600">Ana Sayfa</a>
+
+                    <div class="dropdown relative">
+                        <button class="text-green-800 font-medium hover:text-green-600 flex items-center">
+                            Hakkımızda <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-50">Tarihçe</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-50">Misyon & Vizyon</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-50">Ekibimiz</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-50">Tesislerimiz</a>
+                        </div>
+                    </div>
+
+                    <a href="#" class="text-green-800 font-medium hover:text-green-600">Hayvan Kataloğu</a>
+
+                    <div class="dropdown relative">
+                        <button class="text-green-800 font-medium hover:text-green-600 flex items-center">
+                            Hizmetlerimiz <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-50">Gebe Düve Seçimi</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-50">Danışmanlık</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-50">Lojistik</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-50">Satış Sonrası Destek</a>
+                        </div>
+                    </div>
+
+                    <a href="#" class="text-green-800 font-medium hover:text-green-600">Kalite & Güvence</a>
+                    <a href="#" class="text-green-800 font-medium hover:text-green-600">Blog</a>
+                    <a href="#" class="text-green-800 font-medium hover:text-green-600">İletişim</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-green-800">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg rounded-md">
+                <a href="#" class="block py-2 text-green-800 hover:bg-green-50">Ana Sayfa</a>
+                <a href="#" class="block py-2 text-green-800 hover:bg-green-50">Hakkımızda</a>
+                <a href="#" class="block py-2 text-green-800 hover:bg-green-50">Hayvan Kataloğu</a>
+                <a href="#" class="block py-2 text-green-800 hover:bg-green-50">Hizmetlerimiz</a>
+                <a href="#" class="block py-2 text-green-800 hover:bg-green-50">Kalite & Güvence</a>
+                <a href="#" class="block py-2 text-green-800 hover:bg-green-50">Blog</a>
+                <a href="#" class="block py-2 text-green-800 hover:bg-green-50">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Layout -->
+    <div class="flex">
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar bg-green-800 text-white h-screen fixed overflow-y-auto w-64">
+            <div class="p-4 flex items-center justify-between border-b border-green-700">
+                <div class="flex items-center">
+                    <i class="fas fa-chart-line text-xl sidebar-icon mr-3"></i>
+                    <span class="sidebar-text font-bold text-lg">Gülvet Analytics</span>
+                </div>
+                <button id="sidebar-toggle" class="text-white hover:text-green-200">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+
+            <div class="p-4">
+                <div class="mb-6">
+                    <p class="text-green-300 uppercase text-xs font-semibold sidebar-text mb-2">Genel</p>
+                    <ul>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded hover:bg-green-700">
+                                <i class="fas fa-tachometer-alt sidebar-icon mr-3"></i>
+                                <span class="sidebar-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded bg-green-700">
+                                <i class="fas fa-chart-bar sidebar-icon mr-3"></i>
+                                <span class="sidebar-text">Analytics</span>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded hover:bg-green-700">
+                                <i class="fas fa-robot sidebar-icon mr-3"></i>
+                                <span class="sidebar-text">AI Insights</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <p class="text-green-300 uppercase text-xs font-semibold sidebar-text mb-2">İçerik Yönetimi</p>
+                    <ul>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded hover:bg-green-700">
+                                <i class="fas fa-file-alt sidebar-icon mr-3"></i>
+                                <span class="sidebar-text">Sayfalar</span>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded hover:bg-green-700">
+                                <i class="fas fa-blog sidebar-icon mr-3"></i>
+                                <span class="sidebar-text">Blog Yazıları</span>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded hover:bg-green-700">
+                                <i class="fas fa-cow sidebar-icon mr-3"></i>
+                                <span class="sidebar-text">Hayvan Kataloğu</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <p class="text-green-300 uppercase text-xs font-semibold sidebar-text mb-2">Kullanıcılar</p>
+                    <ul>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded hover:bg-green-700">
+                                <i class="fas fa-users sidebar-icon mr-3"></i>
+                                <span class="sidebar-text">Kullanıcılar</span>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded hover:bg-green-700">
+                                <i class="fas fa-user-shield sidebar-icon mr-3"></i>
+                                <span class="sidebar-text">Roller & İzinler</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p class="text-green-300 uppercase text-xs font-semibold sidebar-text mb-2">Ayarlar</p>
+                    <ul>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded hover:bg-green-700">
+                                <i class="fas fa-cog sidebar-icon mr-3"></i>
+                                <span class="sidebar-text">Genel Ayarlar</span>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded hover:bg-green-700">
+                                <i class="fas fa-bell sidebar-icon mr-3"></i>
+                                <span class="sidebar-text">Bildirimler</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="main-content" class="content ml-64 p-6 w-full">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-3xl font-bold text-gray-800">Analytics Dashboard</h1>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Ara..."
+                            class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                    <button class="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
+                        <i class="fas fa-bell text-gray-600"></i>
+                        <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500"></span>
+                    </button>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User"
+                            class="w-8 h-8 rounded-full mr-2">
+                        <span class="font-medium">Admin</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-lg shadow p-6 card-hover transition-all duration-300">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-500 text-sm font-medium">Toplam Ziyaretçi</p>
+                            <h3 class="text-2xl font-bold mt-1">12,458</h3>
+                            <p class="text-green-500 text-sm mt-2"><i class="fas fa-arrow-up mr-1"></i> 12.5% from last
+                                week</p>
+                        </div>
+                        <div class="bg-green-100 p-3 rounded-full">
+                            <i class="fas fa-users text-green-600"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-6 card-hover transition-all duration-300">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-500 text-sm font-medium">Sayfa Görüntüleme</p>
+                            <h3 class="text-2xl font-bold mt-1">48,752</h3>
+                            <p class="text-green-500 text-sm mt-2"><i class="fas fa-arrow-up mr-1"></i> 8.3% from last
+                                week</p>
+                        </div>
+                        <div class="bg-blue-100 p-3 rounded-full">
+                            <i class="fas fa-eye text-blue-600"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-6 card-hover transition-all duration-300">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-500 text-sm font-medium">Ortalama Kalma Süresi</p>
+                            <h3 class="text-2xl font-bold mt-1">3m 42s</h3>
+                            <p class="text-red-500 text-sm mt-2"><i class="fas fa-arrow-down mr-1"></i> 2.1% from last
+                                week</p>
+                        </div>
+                        <div class="bg-purple-100 p-3 rounded-full">
+                            <i class="fas fa-clock text-purple-600"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-6 card-hover transition-all duration-300">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-500 text-sm font-medium">Dönüşüm Oranı</p>
+                            <h3 class="text-2xl font-bold mt-1">4.8%</h3>
+                            <p class="text-green-500 text-sm mt-2"><i class="fas fa-arrow-up mr-1"></i> 1.7% from last
+                                week</p>
+                        </div>
+                        <div class="bg-yellow-100 p-3 rounded-full">
+                            <i class="fas fa-percentage text-yellow-600"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Traffic Chart -->
+                <div class="bg-white rounded-lg shadow p-6 lg:col-span-2">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">Ziyaretçi Trafiği</h2>
+                        <div class="flex space-x-2">
+                            <button class="px-3 py-1 text-xs bg-green-100 text-green-800 rounded">Günlük</button>
+                            <button class="px-3 py-1 text-xs bg-gray-100 text-gray-800 rounded">Haftalık</button>
+                            <button class="px-3 py-1 text-xs bg-gray-100 text-gray-800 rounded">Aylık</button>
+                        </div>
+                    </div>
+                    <canvas id="trafficChart" height="250"></canvas>
+                </div>
+
+                <!-- Traffic Sources -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-lg font-semibold mb-4">Trafik Kaynakları</h2>
+                    <canvas id="trafficSourcesChart" height="250"></canvas>
+                    <div class="mt-4 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                                <span>Doğrudan</span>
+                            </div>
+                            <span class="font-medium">42%</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                                <span>Arama Motorları</span>
+                            </div>
+                            <span class="font-medium">35%</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
+                                <span>Sosyal Medya</span>
+                            </div>
+                            <span class="font-medium">15%</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-purple-500 rounded-full mr-2"></div>
+                                <span>Referanslar</span>
+                            </div>
+                            <span class="font-medium">8%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Insights and Content Management -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- AI Insights -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-lg font-semibold mb-4">AI Önerileri</h2>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                    <i class="fas fa-bullseye text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Hedef Kitle Analizi</h4>
+                                    <p class="text-sm text-gray-600 mt-1">35-50 yaş arası çiftçiler sitede daha fazla
+                                        zaman geçiriyor. Bu kitleye yönelik içerik artırılabilir.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-green-50 rounded-lg">
+                            <div class="flex items-start">
+                                <div class="bg-green-100 p-2 rounded-full mr-3">
+                                    <i class="fas fa-search text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">SEO Optimizasyonu</h4>
+                                    <p class="text-sm text-gray-600 mt-1">"Gebe düve fiyatları" aramalarında
+                                        sıralamanızı yükseltmek için içerik güncellemesi öneriliyor.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-purple-50 rounded-lg">
+                            <div class="flex items-start">
+                                <div class="bg-purple-100 p-2 rounded-full mr-3">
+                                    <i class="fas fa-clock text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Ziyaretçi Zamanlaması</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Ziyaretçilerin %68'i 09:00-11:00 arasında
+                                        siteye geliyor. Bu saatlerde canlı destek ekibi hazır bulundurulabilir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="mt-4 w-full py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                        Tüm Önerileri Gör <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- Popular Pages -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">Popüler Sayfalar</h2>
+                        <button class="text-green-600 text-sm font-medium">Tümünü Gör</button>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="bg-gray-100 p-2 rounded-lg mr-3">
+                                    <i class="fas fa-file-alt text-gray-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Gebe Düve Satışı</h4>
+                                    <p class="text-sm text-gray-500">12,458 görüntüleme</p>
+                                </div>
+                            </div>
+                            <span class="text-green-500 text-sm font-medium">+12%</span>
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="bg-gray-100 p-2 rounded-lg mr-3">
+                                    <i class="fas fa-file-alt text-gray-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Hayvan Kataloğu</h4>
+                                    <p class="text-sm text-gray-500">9,752 görüntüleme</p>
+                                </div>
+                            </div>
+                            <span class="text-green-500 text-sm font-medium">+8%</span>
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="bg-gray-100 p-2 rounded-lg mr-3">
+                                    <i class="fas fa-file-alt text-gray-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Fiyat Listesi</h4>
+                                    <p class="text-sm text-gray-500">7,891 görüntüleme</p>
+                                </div>
+                            </div>
+                            <span class="text-red-500 text-sm font-medium">-3%</span>
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="bg-gray-100 p-2 rounded-lg mr-3">
+                                    <i class="fas fa-file-alt text-gray-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">İletişim</h4>
+                                    <p class="text-sm text-gray-500">6,543 görüntüleme</p>
+                                </div>
+                            </div>
+                            <span class="text-green-500 text-sm font-medium">+5%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-lg font-semibold mb-4">Son Aktivite</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-3 mt-1">
+                                <i class="fas fa-user-plus text-green-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm"><span class="font-medium">Yeni kullanıcı</span> kayıt oldu</p>
+                                <p class="text-xs text-gray-500 mt-1">2 dakika önce</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 rounded-full mr-3 mt-1">
+                                <i class="fas fa-edit text-blue-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm"><span class="font-medium">Hayvan Kataloğu</span> güncellendi</p>
+                                <p class="text-xs text-gray-500 mt-1">15 dakika önce</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-2 rounded-full mr-3 mt-1">
+                                <i class="fas fa-comment text-purple-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm"><span class="font-medium">Yeni yorum</span> eklendi</p>
+                                <p class="text-xs text-gray-500 mt-1">1 saat önce</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-yellow-100 p-2 rounded-full mr-3 mt-1">
+                                <i class="fas fa-chart-line text-yellow-600 text-sm"></i>
+
+</html>

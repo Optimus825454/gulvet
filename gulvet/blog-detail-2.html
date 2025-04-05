@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holstein Irkı Sığırların Bakımı ve Beslenmesi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="font-sans bg-gray-50">
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="hero-bg-2 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">Holstein Irkı Sığırların Bakımı ve Beslenmesi</h1>
+            <p class="text-xl md:text-2xl mb-6">Verimli süt üretimi için en iyi uygulamalar</p>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-12">
+        <article class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md article-content">
+            <div class="flex items-center text-sm text-gray-500 mb-6">
+                <span><i class="far fa-calendar-alt mr-1"></i> 10 Haziran 2023</span>
+                <span class="mx-2">•</span>
+                <span><i class="far fa-user mr-1"></i> Ziraat Müh. Ayşe Demir</span>
+                <span class="mx-2">•</span>
+                <span><i class="far fa-clock mr-1"></i> 4 dk okuma</span>
+            </div>
+            <img src="images/animals/hols.png" alt="Holstein Irkı" class="w-full h-auto mb-6 rounded-lg shadow" />
+            <h2 class="text-2xl font-bold mb-4">Holstein Irkının Özellikleri</h2>
+            <p class="mb-4">Holstein sığırları, yüksek süt verimi ile bilinen en popüler sütçü ırklardan biridir. Doğru
+                bakım ve beslenme ile yıllık 10.000 litrenin üzerinde süt verimi sağlanabilir.</p>
+            <h3 class="text-xl font-semibold mb-3">Beslenme İpuçları</h3>
+            <p class="mb-4">Yüksek verimli Holstein ineklerinin enerji, protein, mineral ve vitamin ihtiyaçları dengeli
+                şekilde karşılanmalıdır. Rasyonlar, kaliteli kaba yem ve konsantre yem karışımlarından oluşmalıdır.</p>
+            <p class="mb-4">Laktasyon dönemine göre yem içeriği ayarlanmalı, özellikle doğum sonrası enerji açığı
+                önlenmelidir.</p>
+            <h3 class="text-xl font-semibold mb-3">Bakımda Dikkat Edilecekler</h3>
+            <p class="mb-4">Temiz ve konforlu barınaklar, düzenli sağım, ayak bakımı ve aşılama programları Holstein
+                sürülerinde verimliliği artırır.</p>
+            <p class="mb-4">Isı stresi, mastitis ve metabolik hastalıklar gibi sorunlara karşı önleyici tedbirler
+                alınmalıdır.</p>
+            <p class="mb-4">Doğru bakım ve beslenme ile Holstein ineklerinden maksimum verim almak mümkündür.</p>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        document.addEventListener( 'DOMContentLoaded', function () {
+            fetch( 'components/navbar.html' )
+                .then( response => response.text() )
+                .then( data => { document.getElementById( 'navbar-placeholder' ).innerHTML = data; } );
+
+            fetch( 'components/footer.html' )
+                .then( response => response.text() )
+                .then( data => { document.getElementById( 'footer-placeholder' ).innerHTML = data; } );
+        } );
+    </script>
+
+</body>
+
+</html>
