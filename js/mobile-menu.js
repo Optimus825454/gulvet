@@ -72,3 +72,44 @@ document.addEventListener( 'DOMContentLoaded', function () {
     // 5 saniye sonra interval'i temizle (timeout güvenliği)
     setTimeout( () => clearInterval( checkNavbarLoaded ), 5000 );
 } );
+
+function initMobileMenu() {
+    console.log( 'initMobileMenu çağrıldı' );
+
+    const button = document.getElementById( 'mobile-menu-button' );
+    const menu = document.getElementById( 'mobile-menu' );
+
+    if ( !button || !menu ) {
+        console.error( 'Mobil menü elemanları bulunamadı' );
+        return;
+    }
+
+    function toggleMenu( e ) {
+        if ( e ) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        menu.classList.toggle( 'hidden' );
+        const icon = button.querySelector( 'i' );
+        if ( icon ) {
+            if ( menu.classList.contains( 'hidden' ) ) {
+                icon.classList.replace( 'fa-times', 'fa-bars' );
+            } else {
+                icon.classList.replace( 'fa-bars', 'fa-times' );
+            }
+        }
+    }
+
+    button.addEventListener( 'click', toggleMenu );
+
+    document.addEventListener( 'click', function ( e ) {
+        if ( !menu.classList.contains( 'hidden' ) &&
+            !menu.contains( e.target ) &&
+            !button.contains( e.target ) ) {
+            toggleMenu();
+        }
+    } );
+}
+
+window.initMobileMenu = initMobileMenu;

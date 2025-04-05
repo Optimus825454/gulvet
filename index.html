@@ -8,7 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="/gulvet/js/mobile-menu.js" defer></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/main.js" defer></script>
 </head>
 
 <body class="font-sans bg-gray-50">
@@ -458,7 +459,7 @@
         }, 5000 );
         // Navbar ve footer'ı AJAX ile yükle
         document.addEventListener( 'DOMContentLoaded', function () {
-            fetch( 'components/navbar.html' )
+            fetch( './components/navbar.html' )
                 .then( response => response.text() )
                 .then( data => {
                     const navbarEl = document.getElementById( 'navbar-placeholder' );
@@ -478,7 +479,7 @@
                 } )
                 .catch( console.error );
 
-            fetch( 'components/footer.html' )
+            fetch( './components/footer.html' )
                 .then( response => response.text() )
                 .then( data => {
                     const footerEl = document.getElementById( 'footer-placeholder' );
@@ -597,7 +598,6 @@
             quoteModal.classList.add( 'hidden' );
         } );
     </script>
-    <script src="js/main.js"></script>
 
     <!-- GUL-AI Avatar ve Karşılama Balonu -->
     <div id="gul-ai-avatar" class="fixed bottom-24 right-6 z-50 cursor-move flex flex-col items-end space-y-2">
