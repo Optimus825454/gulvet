@@ -8,26 +8,6 @@ document.addEventListener( 'DOMContentLoaded', function () {
                 navbarPlaceholder.innerHTML = data;
                 initNavbar();
             } );
-    } else if ( lower.includes( 'çalışma' ) || lower.includes( 'saat' ) ) {
-        reply = 'Hafta içi 09:00 - 18:00, Cumartesi 09:00 - 14:00 saatleri arasında hizmet veriyoruz.';
-    } else if ( lower.includes( 'adres' ) || lower.includes( 'lokasyon' ) || lower.includes( 'nerede' ) ) {
-        reply = 'İşletmemiz Konya Merkez\'dedir. Detaylı adres için iletişime geçebilirsiniz.';
-    } else if ( lower.includes( 'ödeme' ) || lower.includes( 'kredi kartı' ) || lower.includes( 'nakit' ) ) {
-        reply = 'Nakit, havale ve kredi kartı ile ödeme kabul ediyoruz.';
-    } else if ( lower.includes( 'teslimat' ) || lower.includes( 'kargo' ) || lower.includes( 'ne zaman' ) ) {
-        reply = 'Teslimat süremiz genellikle 3-7 iş günü arasındadır.';
-    } else if ( lower.includes( 'garanti' ) || lower.includes( 'iade' ) ) {
-        reply = 'Hayvanlarımız sağlık garantilidir. Sorun olması durumunda iade veya değişim sağlanır.';
-    } else if ( lower.includes( 'kampanya' ) || lower.includes( 'indirim' ) ) {
-        reply = 'Dönemsel kampanyalarımız için lütfen bizi takip edin veya iletişime geçin.';
-    } else if ( lower.includes( 'randevu' ) || lower.includes( 'ziyaret' ) ) {
-        reply = 'Çiftliğimizi ziyaret etmek için önceden randevu alabilirsiniz.';
-    } else if ( lower.includes( 'sosyal medya' ) || lower.includes( 'instagram' ) || lower.includes( 'facebook' ) ) {
-        reply = 'Bizi Instagram ve Facebook\'ta "gulvethayvancilik" olarak bulabilirsiniz.';
-    } else if ( lower.includes( 'uzmanlık' ) || lower.includes( 'hangi alan' ) ) {
-        reply = 'Damızlık hayvan satışı, sürü yönetimi ve hayvan sağlığı danışmanlığı alanlarında uzmanız.';
-    } else if ( lower.includes( 'sağlık' ) || lower.includes( 'bakım' ) ) {
-        reply = 'Hayvan sağlığı ve bakımı konusunda da size destek verebiliriz.';
     }
 
     // Teklif formu gönderim işlemi
