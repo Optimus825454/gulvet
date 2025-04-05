@@ -7,6 +7,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
             .then( data => {
                 navbarPlaceholder.innerHTML = data;
                 initNavbar();
+                initNavbar();
             } );
     }
 

@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="/gulvet/js/mobile-menu.js" defer></script>
 </head>
 
 <body class="font-sans bg-gray-50">
@@ -460,15 +461,32 @@
             fetch( 'components/navbar.html' )
                 .then( response => response.text() )
                 .then( data => {
-                    document.getElementById( 'navbar-placeholder' ).innerHTML = data;
-                    initNavbar();
-                } );
+                    const navbarEl = document.getElementById( 'navbar-placeholder' );
+                    if ( navbarEl ) {
+                        navbarEl.innerHTML = data;
+                        initNavbar();
+
+                        const btn = document.getElementById( 'mobile-menu-button' );
+                        const menu = document.getElementById( 'mobile-menu' );
+                        if ( btn && menu ) {
+                            btn.addEventListener( 'click', function ( e ) {
+                                e.stopPropagation();
+                                menu.classList.toggle( 'hidden' );
+                            } );
+                        }
+                    }
+                } )
+                .catch( console.error );
 
             fetch( 'components/footer.html' )
                 .then( response => response.text() )
                 .then( data => {
-                    document.getElementById( 'footer-placeholder' ).innerHTML = data;
-                } );
+                    const footerEl = document.getElementById( 'footer-placeholder' );
+                    if ( footerEl ) {
+                        footerEl.innerHTML = data;
+                    }
+                } )
+                .catch( console.error );
         } );
     </script>
 

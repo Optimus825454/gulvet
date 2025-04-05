@@ -1,17 +1,26 @@
 <!-- Top Bar -->
 <div class="bg-green-800 text-white py-2 px-4 text-sm">
     <div class="container mx-auto flex justify-between items-center">
-        <div class="flex space-x-4">
-            <a href="tel:+905555555555" class="hover:text-green-200"><i class="fas fa-phone-alt mr-1"></i> +90 555 555
-                55 55</a>
-            <a href="mailto:info@gulvet.com" class="hover:text-green-200"><i class="fas fa-envelope mr-1"></i>
-                info@gulvet.com</a>
+        <div class="flex flex-col space-y-1 md:flex-row md:space-y-0 md:space-x-4">
+            <div class="flex items-center">
+                <i class="fas fa-user-md mr-1"></i>
+                <span>Veteriner Hekim Kaya Duran GÜL</span>
+            </div>
+            <div class="flex items-center">
+                <a href="tel:+905368562081" class="hover:text-green-200">
+                    <i class="fas fa-phone-alt mr-1"></i> +90 536 856 20 81
+                </a>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-1"></i>
+                <span>GülVet İthal Simental Gebe Düve Çiftliği</span>
+            </div>
         </div>
         <div class="flex space-x-3">
             <a href="#" class="hover:text-green-200"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="hover:text-green-200"><i class="fab fa-instagram"></i></a>
             <a href="#" class="hover:text-green-200"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="hover:text-green-200"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/905368562081" class="hover:text-green-200"><i class="fab fa-whatsapp"></i></a>
         </div>
     </div>
 </div>
@@ -71,35 +80,25 @@
 
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-green-800"></button>
-                <i class="fas fa-bars text-2xl"></i>
+                <button id="mobile-menu-button" class="text-green-800 p-2">
+                    <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg rounded-md mt-2">
-            <a href="index.html" class="block py-2 text-green-800 hover:bg-green-50">Ana Sayfa</a>
-            <a href="hakkimizda.html" class="block py-2 text-green-800 hover:bg-green-50">Hakkımızda</a>
-            <a href="katalog.html" class="block py-2 text-green-800 hover:bg-green-50">Hayvan Kataloğu</a>
-            <a href="hizmetlerimiz.html" class="block py-2 text-green-800 hover:bg-green-50">Hizmetlerimiz</a>
-            <a href="kalite.html" class="block py-2 text-green-800 hover:bg-green-50">Kalite & Güvence</a>
-            <a href="blog.html" class="block py-2 text-green-800 hover:bg-green-50">Blog</a>
-            <a href="iletsim.html" class="block py-2 text-green-800 hover:bg-green-50">İletişim</a>
+        <div id="mobile-menu" class="hidden fixed top-[120px] left-0 right-0 bg-white py-4 px-4 shadow-lg z-50">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="text-green-800 hover:text-green-600">Ana Sayfa</a>
+                <a href="hakkimizda.html" class="text-green-800 hover:text-green-600">Hakkımızda</a>
+
+                <a href="hizmetlerimiz.html" class="text-green-800 hover:text-green-600">Hizmetlerimiz</a>
+                <a href="kalite.html" class="text-green-800 hover:text-green-600">Kalite & Güvence</a>
+                <a href="blog.html" class="text-green-800 hover:text-green-600">Blog</a>
+                <a href="iletsim.html" class="text-green-800 hover:text-green-600">İletişim</a>
+            </div>
         </div>
     </div>
 </nav>
 
-<script>
-    document.querySelectorAll( '.dropdown' ).forEach( drop => {
-        drop.addEventListener( 'mouseenter', () => {
-            drop.querySelector( '.dropdown-menu' ).classList.remove( 'hidden' );
-        } );
-        drop.addEventListener( 'mouseleave', () => {
-            drop.querySelector( '.dropdown-menu' ).classList.add( 'hidden' );
-        } );
-    } );
-    document.getElementById( 'mobile-menu-button' ).addEventListener( 'click', () => {
-        document.getElementById( 'mobile-menu' ).classList.toggle( 'hidden' );
-    } );
-</script>
+<script src="/gulvet/js/mobile-menu.js"></script>
